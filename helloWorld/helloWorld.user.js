@@ -52,10 +52,15 @@ if(typeof(dojo) != "undefined") {
                     load: function(data){
                     // Replace newlines with nice HTML tags.
                         var nodes = data.getElementsByTagName("entry");
-                        if(nodes){
-                            dojo.query("span.shareSome-title")[0].textContent="alraady joined";
+                        if(nodes && nodes.length > 0){
+                            dojo.query("span.shareSome-title")[0].textContent="already joined";
                         } else {
-                            dojo.query("span.shareSome-title")[0].textContent="not join";
+                            var mynode = dojo.query("span.shareSome-title")[0];
+                            mynode.textContent="not join";
+                            var nonce = dojo.cookie('token');
+                            lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
+                            //"X-Update-Nonce"
+                            dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm()", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, mynode);
                         }
                     
                     },
