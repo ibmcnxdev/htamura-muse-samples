@@ -1,0 +1,23 @@
+{
+  "name": "Homepage Customization",
+  "title": "Htamura Agreement Terms sample",
+  "description": "Inserts text into IBM Connections Homepage",
+  "services": [
+    "Customizer"
+  ],
+  "extensions": [
+    {
+      "payload": {
+        "include-files": [
+          "agreementTerms/agreementTerms.user.js"
+        ],
+	      "include-repo":{
+	       "name": "htamura-muse-samples"
+	     }
+      },
+      "name": "Agreement Terms Extension",
+      "type": "com.ibm.customizer.ui",
+      "path": "homepage"
+    }
+  ]
+}
