@@ -1,13 +1,13 @@
 // ==UserScript==
 // @copyright    Copyright IBM Corp. 2018
 //
-// @name         My helloWorld
+// @name         Agreement Terms Sample
 // @version      0.1
 // @description  *** PROTOTYPE CODE *** demonstrates simple hello world script to customize the Home Page
 //
 // @namespace  http://ibm.com
 //
-// @author       Hello World (aka You!)
+// @author       htamura
 //
 // @include      *://apps.ap.collabserv.com/homepage/*
 //
@@ -53,22 +53,24 @@ if(typeof(dojo) != "undefined") {
                     // Replace newlines with nice HTML tags.
                         var nodes = data.getElementsByTagName("entry");
                         if(nodes && nodes.length > 0){
-                            dojo.query("span.shareSome-title")[0].textContent="already joined";
+                            console.log("already joined the community");
                         } else {
-                            var mynode = dojo.query("span.shareSome-title")[0];
-                            mynode.textContent="not join";
+                            var myAgreementTermsDlg = new dijit.Dialog({id: "myAgreementTermsDlg"
+                                                                        title: "Agreement Terms",
+                                                                        content: "Test content.....",
+                                                                        style: "width: 300px",
+                                                                        closable: false});
                             var nonce = dojo.cookie('token');
                             lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
                             //"X-Update-Nonce"
-                            dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm()", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, mynode);
+                            dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, myAgreementTermsDlg.containerNode);
+                            myAgreementTermsDlg.show();
                         }
-                    
                     },
                     error: function(error){
-                         console.log("An unexpected error occurred: " + error);
+                        console.log("An unexpected error occurred: " + error);
                     }
                 }
-                
                 // Call the asynchronous xhrGet
                 var deferred = dojo.xhrGet(xhrArgs);
             },

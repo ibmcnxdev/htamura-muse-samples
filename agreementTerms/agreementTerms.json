@@ -1,6 +1,6 @@
 {
   "name": "Homepage Customization",
-  "title": "Htamura sample",
+  "title": "Htamura Agreement Terms sample",
   "description": "Inserts text into IBM Connections Homepage",
   "services": [
     "Customizer"
@@ -9,13 +9,13 @@
     {
       "payload": {
         "include-files": [
-          "helloWorld/helloWorld.user.js"
+          "agreementTerms/agreementTerms.user.js"
         ],
 	      "include-repo":{
 	       "name": "htamura-muse-samples"
 	     }
       },
-      "name": "Hello World Extension",
+      "name": "Agreement Terms Extension",
       "type": "com.ibm.customizer.ui",
       "path": "homepage"
     }
