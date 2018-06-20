@@ -55,13 +55,13 @@ if(typeof(dojo) != "undefined") {
                         if(nodes && nodes.length > 0){
                             console.log("already joined the community");
                         } else {
-                            var myAgreementTermsDlg = new dijit.Dialog({id: "myAgreementTermsDlg"
+                            var myAgreementTermsDlg = new dijit.Dialog({id: "myAgreementTermsDlg",
                                                                         title: "Agreement Terms",
                                                                         content: "Test content.....",
                                                                         style: "width: 300px",
                                                                         closable: false});
                             var nonce = dojo.cookie('token');
-                            lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
+                            lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=" + "10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
                             //"X-Update-Nonce"
                             dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, myAgreementTermsDlg.containerNode);
                             myAgreementTermsDlg.show();
