@@ -57,13 +57,20 @@ if(typeof(dojo) != "undefined") {
                         } else {
                             var myAgreementTermsDlg = new dijit.Dialog({id: "myAgreementTermsDlg",
                                                                         title: "Agreement Terms",
-                                                                        content: "Test content.....",
-                                                                        style: "width: 300px",
+                                                                        style: "width: 400px",
                                                                         closable: false});
                             var nonce = dojo.cookie('token');
-                            lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=" + "10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
+                            if(lconn.communities.bizCard && lconn.communities.bizCard.core && lconn.communities.bizCard.core.community){
+                                lconn.communities.bizCard.core.community.memberJoinURL = "/communities/service/html/memberjoinsubmit?communityUuid=" + "10d48e8a-ee5a-47c8-b6aa-497a72dda53f";
+                            }
                             //"X-Update-Nonce"
-                            dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, myAgreementTermsDlg.containerNode);
+                            if(myAgreementTermsDlg.containerNode.innerHTML == ""){
+                                var border = dojo.create("div", {class:"lotusDialogBorder"}, myAgreementTermsDlg.containerNode);
+                                var lotusDialog = dojo.create("div", {class:"lotusDialog"}, border);
+                                var lotusDialogHeader = dojo.create("div", {class:"lotusDialogHeader", innerHTML:'<h1 class="lotusHeading" data-dojo-attach-point="titleNode">Agreement Terms</h1>'}, lotusDialog);
+                                var lotusDialogContent = dojo.create("div", {class:"lotusDialogContent", style:{padding-right: "0px", padding-bottom: "0px", width: "auto", height: "auto"}, data-dojo-attach-point:"gadgetNode", innerHTML:'Test content.....<br>'}, lotusDialog);
+                                dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, lotusDialogContent);
+                            }
                             myAgreementTermsDlg.show();
                         }
                     },
