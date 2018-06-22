@@ -68,7 +68,14 @@ if(typeof(dojo) != "undefined") {
                                 var border = dojo.create("div", {class:"lotusDialogBorder"}, myAgreementTermsDlg.containerNode);
                                 var lotusDialog = dojo.create("div", {class:"lotusDialog"}, border);
                                 var lotusDialogHeader = dojo.create("div", {class:"lotusDialogHeader", innerHTML:'<h1 class="lotusHeading" data-dojo-attach-point="titleNode">Agreement Terms</h1>'}, lotusDialog);
-                                var lotusDialogContent = dojo.create("div", {class:"lotusDialogContent", style:{padding-right: "0px", padding-bottom: "0px", width: "auto", height: "auto"}, data-dojo-attach-point:"gadgetNode", innerHTML:'Test content.....<br>'}, lotusDialog);
+                                var lotusDialogContent = dojo.create("div", {class:"lotusDialogContent", innerHTML:'Test content.....'}, lotusDialog);
+                                dojo.attr(lotusDialogContent, "data-dojo-attach-point", "gadgetNode");
+                                if(lotusDialogContent.style){
+                                    lotusDialogContent.style.paddingRight = "0px";
+                                    lotusDialogContent.style.paddingBottom = "0px";
+                                    lotusDialogContent.style.width = "auto";
+                                    lotusDialogContent.style.height = "auto";
+                                }
                                 dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, lotusDialogContent);
                             }
                             myAgreementTermsDlg.show();
