@@ -140,7 +140,7 @@ if(typeof(dojo) != "undefined") {
                                 '' +
                                 '      "Contributor" shall mean Licensor and any individual or Legal Entity' +
                                 '      on behalf of whom a Contribution has been received by Licensor and' +
-                                '      subsequently incorporated within the Work.'
+                                '      subsequently incorporated within the Work.';
 
                                 dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, lotusDialogContent);
                             }
