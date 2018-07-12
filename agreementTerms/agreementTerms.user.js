@@ -57,7 +57,7 @@ if(typeof(dojo) != "undefined") {
                         } else {
                             var myAgreementTermsDlg = new dijit.Dialog({id: "myAgreementTermsDlg",
                                                                         title: "Agreement Terms",
-                                                                        style: "width: 600px",
+                                                                        style: "width:600px;height:400px;",
                                                                         closable: false});
                             var nonce = dojo.cookie('token');
                             if(lconn.communities.bizCard && lconn.communities.bizCard.core && lconn.communities.bizCard.core.community){
