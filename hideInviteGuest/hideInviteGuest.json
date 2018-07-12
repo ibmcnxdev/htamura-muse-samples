@@ -1,0 +1,21 @@
+{
+  "name": "Htamura Hide Invite Guest sample",
+  "title": "Htamura Hide Invite Guest sample",
+  "description": "Hide Invite Guest menu",
+  "services": ["Customizer"],
+  "extensions": [
+    {
+      "payload": {
+        "include-files": [
+          "hideInviteGuest/hideInviteGuest.js"
+        ],
+	      "include-repo":{
+	       "name": "htamura-muse-samples"
+	     }
+      },
+      "name": "Hide Invite Guest Extension",
+      "type": "com.ibm.customizer.ui",
+      "path": "global"
+    }
+  ]
+}
