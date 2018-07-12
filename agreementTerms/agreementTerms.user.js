@@ -142,7 +142,7 @@ if(typeof(dojo) != "undefined") {
                                 '      on behalf of whom a Contribution has been received by Licensor and' +
                                 '      subsequently incorporated within the Work.';
 
-                                dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "Approve to Join", innerHTML: "Join to community" }, lotusDialogContent);
+                                dojo.create("a", { href: "javascript:lconn.communities.bizCard.core.community.memberJoinURL = '/communities/service/html/memberjoinsubmit?communityUuid=' + '10d48e8a-ee5a-47c8-b6aa-497a72dda53f';lconn.communities.bizCard.core.joinComm();myAgreementTermsDlg.hide();", role: "button", title: "I accept the terms of this agreement", innerHTML: "I accept the terms of this agreement" }, lotusDialogContent);
                             }
                             myAgreementTermsDlg.show();
                         }
