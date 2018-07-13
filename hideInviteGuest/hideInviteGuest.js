@@ -45,7 +45,7 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
                 // wait until the "loading..." node has been hidden
                 // indicating that we have loaded content.
-                dojo.query("li.invite")[0].style.dysplay="none";
+                dojo.query("li.invite")[0].style.display="none";
             },"li.invite");
         } catch(e) {
             alert("Exception occurred in helloWorld: " + e);
